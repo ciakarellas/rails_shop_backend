@@ -1,13 +1,13 @@
 
 
-class ProductsController < ApplicationController
+class V1::ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
 
   # GET /products
   def index
-    products = Product.all
+    @products = Product.all
 
-    render json: ProductSerializer.new(products)
+    render :index
   end
 
   # GET /products/1

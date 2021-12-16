@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
-  resources :products
+  namespace :v1, default: {format: :json} do
+    
+    resources :products
+  end
+  #Ex:- :default =>''
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
