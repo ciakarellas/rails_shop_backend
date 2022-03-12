@@ -5,7 +5,7 @@ class V1::ProductsController < ApplicationController
 
   # GET /products
   def index
-    @products = Product.all
+    @products = Product.all.order(:done, :updated_at)
 
     render :index
   end
@@ -48,6 +48,6 @@ class V1::ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :done)
+      params.require(:product).permit(:name, :done, :id)
     end
 end
